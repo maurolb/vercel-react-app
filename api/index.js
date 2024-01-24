@@ -12,8 +12,6 @@ export default async function handler(req, res) {
 
     await client.connect();
 
-    console.log("Conectado correctamente al servidor de MongoDB");
-
     const db = client.db(dbName);
 
     const collection = db.collection("shorturls");
@@ -25,11 +23,10 @@ export default async function handler(req, res) {
     );
 
     await client.close();
-    res.status(200).json({
+    res.send({
       message: `${result.deletedCount} documentos eliminados correctamente`,
     });
   } catch (error) {
-    console.error("Error al eliminar documentos", error);
-    res.status(500).json({ error: "Error interno del servidor" });
+    res.send({ error: "Error interno del servidor" });
   }
 }
