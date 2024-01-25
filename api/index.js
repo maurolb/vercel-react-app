@@ -7,6 +7,14 @@ const dbName = "urlshortener";
 const nanoid = customAlphabet("abcdefghijklmnopqrstuv0987654321", 6);
 
 export default async function handler(req, res) {
+  const result = await deleteAll();
+
+  res.send({
+    message: result,
+  });
+}
+
+async function deleteAll() {
   const client = new MongoClient(url);
 
   await client.connect();
@@ -18,7 +26,9 @@ export default async function handler(req, res) {
   const result = await collection.deleteMany({});
 
   await client.close();
-  res.send({
-    message: `${result.deletedCount} documentos eliminados correctamente`,
-  });
+
+  if (result) {
+    return "documentos eliminados correctamente";
+  }
+  return "no se pudo eliminar";
 }
