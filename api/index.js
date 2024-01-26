@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
 async function timer(time = 1000) {
   setTimeout(() => {
-    return (message = "hola");
+    return "hola";
   }, time);
 }
 
