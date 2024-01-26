@@ -16,9 +16,10 @@ export default async function handler(req, res) {
 }
 
 async function timer(time = 1000) {
-  setTimeout(() => {
+  const result = await setTimeout(() => {
     return "hola";
   }, time);
+  return result;
 }
 
 // async function deleteAll() {
