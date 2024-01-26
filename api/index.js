@@ -9,6 +9,7 @@
 export default async function handler(req, res) {
   const response = await fetch("http://192.168.0.12:3000/api");
   const data = await response.json();
+  console.log(data);
   res.send(data);
 }
 
