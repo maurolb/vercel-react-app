@@ -7,13 +7,10 @@
 // const nanoid = customAlphabet("abcdefghijklmnopqrstuv0987654321", 6);
 
 export default async function handler(req, res) {
-  let message = "default";
-  setTimeout(() => {
-    return (message = "pepito");
-  }, 2000);
+  const data = await fetch("http://localhost:3000/api");
 
-  await res.send({
-    message,
+  res.send({
+    data,
   });
 }
 
