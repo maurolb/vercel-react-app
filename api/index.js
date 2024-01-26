@@ -7,7 +7,7 @@
 // const nanoid = customAlphabet("abcdefghijklmnopqrstuv0987654321", 6);
 
 export default async function handler(req, res) {
-  const data = await fetch("http://192.168.0.12:3000/api");
+  // const data = await fetch("http://192.168.0.12:3000/api");
 
   res.send({
     message: "hola",
