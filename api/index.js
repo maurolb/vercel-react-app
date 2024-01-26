@@ -8,18 +8,13 @@
 
 export default async function handler(req, res) {
   let message = "default";
-  message = await timer(2000);
+  setTimeout(() => {
+    return (message = "pepito");
+  }, 2000);
 
-  res.send({
+  await res.send({
     message,
   });
-}
-
-async function timer(time = 1000) {
-  const result = await setTimeout(() => {
-    return "hola";
-  }, time);
-  return result;
 }
 
 // async function deleteAll() {
