@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const data = await fetch("http://192.168.0.12:3000/api");
 
   res.send({
-    data,
+    message: "hola",
   });
 }
 
